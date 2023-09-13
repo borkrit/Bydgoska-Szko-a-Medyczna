@@ -1521,10 +1521,10 @@ p {
 
 .custom-checkbox input[type=checkbox]:checked + label:before {
   background-color: transparent;
-  content: "✓"; /* Символ галочки в Unicode */
-  font-size: 14px; /* Размер символа галочки */
+  content: "✓";
+  font-size: 14px;
   line-height: 16px;
   text-align: center;
-  color: white; /* Цвет галочки */
+  color: white;
   background: #C3A362;
 }/*# sourceMappingURL=style.css.map */
