@@ -1236,7 +1236,11 @@
             .content-text{
                 margin-block: 20px;
                  
-                @include overflowText(290px)
+                @include overflowText(450px);
+
+                @media screen and (max-width:769px) {
+                    @include overflowText(650px);
+                }
             }
             
         }
