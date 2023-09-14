@@ -8,6 +8,11 @@
         padding-block: $variable;
     }
 
+    @mixin overflowText($height) {
+        overflow: hidden;
+        max-height: $height ;
+    }
+
 
     @mixin property($property, $lg, $md, $sm) {
         #{$property}: $lg;
@@ -707,8 +712,8 @@
                         display: flex;
                         flex-direction: column;
                         gap: 10px;
-                        max-height: 288px;
-                        overflow: hidden;
+                        
+                        @include overflowText(290px);
 
                         @media screen and (max-width:869px) {
                             max-height: 100%;
@@ -960,25 +965,11 @@
                 gap: 10px;
 
                 p {
-                    font-size: 40px;
-
-                    @media screen and (max-width:1440px) {
-                        font-size: 32px;
-                    }
-
-                    @media screen and (max-width:425px) {
-                        font-size: 20px;
-                    }
+                    
+                    @include property(font-size, 40px, 32px, 20px);
                 }
 
-                a {
-                    width: max-content;
-                    font-size: 28px;
-
-                    @media screen and (max-width:425px) {
-                        font-size: 14px;
-                    }
-                }
+               
             }
 
         }
@@ -1120,7 +1111,7 @@
 
             }
 
-            @media screen and (max-width:769px) {
+            @media screen and (max-width:800px) {
                 gap: 20px;
 
             }
@@ -1132,7 +1123,7 @@
                 min-width: 350px;
                 flex: 1 1 350px;
 
-                @media screen and (max-width:769px) {
+                @media screen and (max-width:800px) {
                     min-width: 100%;
 
                 }
@@ -1140,11 +1131,26 @@
             }
 
             .text {
-                @media screen and (max-width:769px) {
+
+                display: flex;
+                flex-direction: column;
+                @include property(gap,30px ,20px ,10px );
+
+                @media screen and (max-width:800px) {
                     order: 2;
                 }
 
+                .title{
+                    @include property(font-size,48px ,40px ,20px )
+                }
+                .content-text{
+                   
+                    @include overflowText(290px);
+                    
+                }
+
                 img {
+                    margin-top: auto;
                     height: auto;
                 }
             }
@@ -1164,17 +1170,32 @@
         }
 
         &__qualification {
+            .title{
+                @include property(font-size,40px,32px , 20px);
+            }
+
+            @include property(margin-top,100px,80px , 60px);
+
             max-width: 65%;
 
-            @media screen and (max-width:769px) {
-                min-width: 100%;
-                max-width: 100%;
-
+            @media screen and (max-width:1024px) {
+                max-width: 80%;
             }
+            @media screen and (max-width:769px) {
+                max-width: 100%;
+            }
+
+            .content-text{
+                margin-block: 20px;
+                 
+                @include overflowText(290px)
+            }
+            
         }
 
         &__bottom-info {
-            margin-top: 60px;
+            @include property(margin-top,100px,60px , 60px);
+
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -1194,6 +1215,17 @@
 
                 }
 
+            }
+
+            .info-block{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                .title{
+                    @include property(max-width,60%,70% , 100%);
+                    font-weight: 700;
+                    @include property(font-size,40px,32px , 20px);
+                }
             }
         }
 
@@ -1681,7 +1713,7 @@
                         width: 24px;
                         height: 12px;
                         position: absolute;
-                        background: url('../../assets/images/arrow.svg');
+                        background: url('../../assets/static/arrow.svg');
                         right: 0;
                         top: 0;
                         transition: transform 1s;
@@ -1747,7 +1779,23 @@
                     display: flex;
                     flex-direction: column;
                     gap: 20px;
+
+                    a{
+                        display: flex;
+                        gap: 12px;
+                    }
                 }
+            }
+
+            &__links{  
+                display: flex;
+                gap: 20px;
+                margin-top: 20px;
+                a{
+                    display: flex;
+                    gap: 12px;
+                } 
+                
             }
         }
 
@@ -1767,7 +1815,7 @@
     
     .custom-checkbox label {
         position: relative;
-        padding-left: 25px; /* Регулирует отступ текста слева от чекбокса */
+        padding-left: 25px;
         cursor: pointer;
     }
     
