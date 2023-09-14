@@ -25,6 +25,7 @@ img {
 
 a {
   text-decoration: none;
+  color: #252525;
 }
 
 button {
@@ -148,6 +149,9 @@ p {
     display: none;
   }
 }
+.header .navigation__item a:hover {
+  color: rgba(37, 37, 37, 0.5);
+}
 @media screen and (max-width: 768px) {
   .header__contact {
     display: none;
@@ -268,6 +272,9 @@ p {
   max-width: calc(50% - 50px);
   flex: 1 1 45%;
 }
+.direction__item-link {
+  cursor: url("../../assets/static/arrow.svg") auto;
+}
 @media screen and (max-width: 768px) {
   .direction__item {
     max-width: 100%;
@@ -277,22 +284,51 @@ p {
   position: relative;
   overflow: hidden;
 }
+.direction__item .img img {
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 @media screen and (min-width: 426px) {
+  .direction__item .img:hover {
+    outline: 4px solid #C3A362;
+  }
   .direction__item .img:hover img {
     transform: translateY(0);
     animation: returnImage 0.3s linear;
+  }
+  .direction__item .img:hover p {
+    display: block;
+    opacity: 1;
+    animation: opacityText 0.5s linear;
   }
   @keyframes returnImage {
     to {
       transform: translateY(100%);
     }
   }
+  @keyframes opacityText {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }
-.direction__item .img.active {
-  outline: 4px solid #C3A362;
+@media screen and (min-width: 500px) {
+  .direction__item .img img {
+    height: 400px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
 }
-.direction__item .img.active p {
-  display: block;
+@media screen and (min-width: 1024px) {
+  .direction__item .img img {
+    height: 680px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
 }
 .direction__item .img p {
   background: #fff;
@@ -300,6 +336,7 @@ p {
   bottom: 0;
   padding: 30px 20px 20px 20px;
   display: none;
+  opacity: 0;
 }
 .direction__item .text {
   margin-top: 10px;
@@ -1787,4 +1824,19 @@ p {
   .fixed-contact-btn {
     right: 20px;
   }
+}
+
+.cursor {
+  display: none;
+  top: 10px;
+  width: 70px;
+  height: 70px;
+  padding-inline: 10px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: #C3A362;
+  color: #FFF;
+  font-size: 16px;
 }/*# sourceMappingURL=style.css.map */

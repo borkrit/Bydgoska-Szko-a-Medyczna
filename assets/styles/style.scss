@@ -51,6 +51,7 @@
 
     a {
         text-decoration: none;
+        color: #252525;
     }
 
     button {
@@ -175,6 +176,16 @@
                 @media screen and (max-width: 768px) {
                     display: none;
                 }
+
+                
+            }
+            &__item{
+                a{
+                    &:hover{
+                        color: rgba(37, 37, 37, 0.5);
+                    }
+                }
+               
             }
         }
 
@@ -292,6 +303,7 @@
 
 
         &__list {
+
             margin-top: 40px;
             border-top: 1px solid black;
             padding-top: 46px;
@@ -312,6 +324,11 @@
             max-width: calc(100%/2 - 50px);
             flex: 1 1 45%;
 
+            &-link{
+                cursor: url('../../assets/static/arrow.svg') auto;
+
+            }
+
             @media screen and (max-width:768px) {
                 max-width: 100%;
             }
@@ -321,30 +338,60 @@
                 position: relative;
                 overflow: hidden;
 
+
+
+                img{
+                    height: 250px;
+                    object-fit: cover;
+                }
                 @media screen and (min-width: 426px) {
+                    
+                   
                     &:hover {
+                        outline: 4px solid #C3A362;
                         img {
                             transform: translateY(0);
                             animation: returnImage 0.3s linear;
+                        }
+                        p {
+                            display: block;
+                            opacity: 1;
+                            animation: opacityText 0.5s linear ;
+
                         }
 
                         @keyframes returnImage {
                             to {
                                 transform: translateY(100%);
                             }
+                        }
+                        @keyframes opacityText {
+                            0% {
+                                opacity: 0;
+                            }
+                            100%{
+                                opacity: 1;
+                            }
+                            
 
                         }
                     }
                 }
-
-
-                &.active {
-                    outline: 4px solid #C3A362;
-
-                    p {
-                        display: block;
+               
+                @media screen and (min-width: 500px) {
+                    img{
+                        height: 400px;
+                        object-fit: cover;
                     }
                 }
+                @media screen and (min-width: 1024px) {
+                    img{
+                        height: 680px;
+                        object-fit: cover;
+                    }
+                }
+
+                
 
                 p {
                     background: #fff;
@@ -352,7 +399,8 @@
                     bottom: 0;
                     padding: 30px 20px 20px 20px;
                     display: none;
-                }
+                    opacity: 0;
+                } 
             }
 
             .text {
@@ -1805,6 +1853,9 @@
 
 
     }
+
+
+    
 // custom checkbox
     .custom-checkbox {
         display: inline-block;
@@ -1884,3 +1935,18 @@
             
     }
     
+
+    .cursor{
+        display: none;
+        top:10px;
+        width: 70px;
+        height: 70px;
+        padding-inline: 10px;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        background-color: #C3A362;
+        color: #FFF;
+        font-size: 16px;
+    }

@@ -1,28 +1,40 @@
-let imgBlock = document.querySelectorAll('.direction__item .img');
-if( window.outerWidth > 426){
-    imgBlock.forEach(item=>{
-        console.log(item);
-        item.addEventListener('mousemove',()=>{
-            if(!item.classList.contains('active')){
-                const setClass =()=>{
-                    item.classList.add('active')
-                }
-        
-                setTimeout(setClass,300);
-        
-                clearTimeout(setClass)
-            }
-            
-        })
+// let imgBlock = document.querySelectorAll('.direction__item .img');
+// // if( window.outerWidth > 426){
+//     imgBlock.forEach(item=>{
+//         console.log(item);
+//         item.addEventListener('mousemove',()=>{
+//             item.style.cursor = 'sss'
+//         })
         
     
-        item.addEventListener('mouseleave',()=>{
-            item.classList.remove('active')
-        })
-    })
+        
+//     })
+// // }
+const cursor = document.querySelector(".cursor");
+
+// Получаем все элементы с классом "direction__item-link"
+const itemLinks = document.querySelectorAll('.direction__item-link');
+// Функция для изменения стиля курсора при наведении
+function changeCursorStyle(event) {
+    let x = event.pageX;
+		let y = event.pageY;
+    cursor.style.display = 'flex';
+    cursor.style.top = `${y}px`;
+    cursor.style.left = `${x}px`;
+}
+function hiddenCursor(){
+    cursor.style.display = 'none';
 }
 
+// Добавляем обработчик события "mouseenter" для каждого элемента
+itemLinks.forEach(itemLink => {
+    itemLink.style.cursor = 'none'
+    itemLink.addEventListener('mousemove', changeCursorStyle);
 
+    itemLink.addEventListener('mouseleave', hiddenCursor);
+
+    
+});
 // menu 
 
 let menuHamburger = document.querySelector('.mobile__menu-icon');
