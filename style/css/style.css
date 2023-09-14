@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Lato", sans-serif;
   position: relative;
@@ -182,9 +186,7 @@ p {
   max-width: 100%;
 }
 .hero__contact {
-  position: absolute;
-  bottom: 120px;
-  right: 40px;
+  display: none;
   background: #C3A362;
   padding: 20px 40px;
   width: -moz-max-content;
@@ -1423,8 +1425,18 @@ p {
 }
 .footer__upper .footer__contact-info ul li {
   width: 280px;
-  font-size: 20px;
   line-height: normal;
+  font-size: 20px;
+}
+@media screen and (max-width: 1440px) {
+  .footer__upper .footer__contact-info ul li {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 869px) {
+  .footer__upper .footer__contact-info ul li {
+    font-size: 14px;
+  }
 }
 @media screen and (max-width: 425px) {
   .footer__upper .footer__contact-info ul li {
@@ -1695,12 +1707,13 @@ p {
 }
 .mobile__menu .mobile__links {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   margin-top: 20px;
 }
 .mobile__menu .mobile__links a {
   display: flex;
   gap: 12px;
+  text-decoration: underline;
 }
 
 .custom-checkbox {
@@ -1738,4 +1751,40 @@ p {
   text-align: center;
   color: white;
   background: #C3A362;
+}
+
+.fixed-contact-btn {
+  position: fixed;
+  width: -moz-max-content;
+  width: max-content;
+  right: 40px;
+  top: 30%;
+  cursor: pointer;
+  background: var(--11, #C3A362);
+}
+.fixed-contact-btn .icon-contact {
+  display: none;
+}
+.fixed-contact-btn a {
+  padding: 20px 40px;
+  display: block;
+  color: var(--1-text, #151515);
+  font-size: 20px;
+  font-weight: 400;
+}
+@media screen and (max-width: 600px) {
+  .fixed-contact-btn a {
+    padding: 12px;
+  }
+  .fixed-contact-btn .text-contact {
+    display: none;
+  }
+  .fixed-contact-btn .icon-contact {
+    display: block;
+  }
+}
+@media screen and (max-width: 500px) {
+  .fixed-contact-btn {
+    right: 20px;
+  }
 }/*# sourceMappingURL=style.css.map */
