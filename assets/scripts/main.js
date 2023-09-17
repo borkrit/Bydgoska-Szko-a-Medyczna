@@ -1,20 +1,19 @@
-// let imgBlock = document.querySelectorAll('.direction__item .img');
-// // if( window.outerWidth > 426){
-//     imgBlock.forEach(item=>{
-//         console.log(item);
-//         item.addEventListener('mousemove',()=>{
-//             item.style.cursor = 'sss'
-//         })
-        
-    
-        
-//     })
-// // }
+const header = document.querySelector('.header__container');
+
+
+
+document.addEventListener('scroll',()=>{
+    console.log( window.scrollY )
+    if(window.scrollY > 20){
+        header.classList.add('scroll')
+    }else{
+        header.classList.remove('scroll')
+    }
+})
+
 const cursor = document.querySelector(".cursor");
 
-// Получаем все элементы с классом "direction__item-link"
 const itemLinks = document.querySelectorAll('.direction__item-link');
-// Функция для изменения стиля курсора при наведении
 function changeCursorStyle(event) {
     let x = event.pageX;
 		let y = event.pageY;
@@ -26,7 +25,6 @@ function hiddenCursor(){
     cursor.style.display = 'none';
 }
 
-// Добавляем обработчик события "mouseenter" для каждого элемента
 itemLinks.forEach(itemLink => {
     itemLink.style.cursor = 'none'
     itemLink.addEventListener('mousemove', changeCursorStyle);
@@ -36,7 +34,6 @@ itemLinks.forEach(itemLink => {
     
 });
 // menu 
-
 let menuHamburger = document.querySelector('.mobile__menu-icon');
 let mobileMenu = document.querySelector('.mobile__wrapper');
 
@@ -66,7 +63,8 @@ let dropdownBtn = document.querySelectorAll('.mobile__item.dropdown');
 dropdownBtn.forEach(el=>{
     el.addEventListener('click',()=>{
         el.classList.toggle('active')
-        if([...dropdownBtn].find(item=> {
+        
+        dropdownBtn.forEach(item=> {
             if(item !== el){
                 item.classList.remove('active')
                 el.classList.toggle('active')
@@ -74,10 +72,7 @@ dropdownBtn.forEach(el=>{
                 el.classList.toggle('active')
             }
             
-        })){
-            
-        }
-
-    })
+        })
+})
 
 })

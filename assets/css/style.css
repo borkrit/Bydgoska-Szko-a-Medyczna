@@ -125,11 +125,29 @@ p {
 }
 
 .header {
-  margin-top: 30px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 20;
 }
 .header__container {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  padding: 25px 40px;
+}
+@media screen and (max-width: 500px) {
+  .header__container {
+    padding: 25px 20px;
+  }
+}
+.header__container.scroll {
+  background: rgba(255, 255, 255, 0.68);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.header__container:has(.mobile__wrapper.active) {
+  padding: 25px 20px;
 }
 .header__container a {
   color: #252525;
@@ -159,7 +177,7 @@ p {
 }
 
 .hero {
-  margin-top: 40px;
+  margin-top: 60px;
 }
 .hero h1 {
   margin-bottom: 30px;
@@ -551,11 +569,11 @@ p {
 }
 
 .directions {
-  margin-top: 80px;
+  margin-top: 100px;
 }
 @media screen and (max-width: 769px) {
   .directions {
-    margin-top: 60px;
+    margin-top: 80px;
   }
 }
 @media screen and (min-width: 769px) {
@@ -645,11 +663,11 @@ p {
 }
 
 .recruting {
-  margin-top: 80px;
+  margin-top: 100px;
 }
 @media screen and (max-width: 425px) {
   .recruting {
-    margin-top: 60px;
+    margin-top: 80px;
   }
 }
 .recruting h1 {
@@ -749,11 +767,11 @@ p {
 }
 
 .contact {
-  margin-top: 80px;
+  margin-top: 100px;
 }
 @media screen and (max-width: 425px) {
   .contact {
-    margin-top: 60px;
+    margin-top: 80px;
   }
 }
 .contact h1 {
@@ -810,11 +828,11 @@ p {
 }
 
 .galery {
-  margin-top: 80px;
+  margin-top: 100px;
 }
 @media screen and (max-width: 425px) {
   .galery {
-    margin-top: 60px;
+    margin-top: 80px;
   }
 }
 .galery__container h1 {
@@ -885,11 +903,11 @@ p {
 }
 
 .foto {
-  margin-top: 80px;
+  margin-top: 100px;
 }
 @media screen and (max-width: 425px) {
   .foto {
-    margin-top: 60px;
+    margin-top: 80px;
   }
 }
 .foto__container .title {
@@ -1002,11 +1020,11 @@ p {
 }
 
 .single-direction {
-  margin-top: 84px;
+  margin-top: 100px;
 }
 @media screen and (max-width: 425px) {
   .single-direction {
-    margin-top: 60px;
+    margin-top: 80px;
   }
 }
 .single-direction__upper-info {
@@ -1074,6 +1092,10 @@ p {
 .single-direction__upper-info .text img {
   margin-top: auto;
   height: auto;
+  max-height: 400px;
+}
+.single-direction__upper-info .images {
+  max-height: 780px;
 }
 @media screen and (max-width: 769px) {
   .single-direction__upper-info .images {
@@ -1196,11 +1218,11 @@ p {
 }
 
 .about-us {
-  margin-top: 84px;
+  margin-top: 100px;
 }
 @media screen and (max-width: 425px) {
   .about-us {
-    margin-top: 60px;
+    margin-top: 80px;
   }
 }
 .about-us__header-info {
@@ -1564,6 +1586,10 @@ p {
 .footer__upper .footer__form textarea::placeholder {
   color: #FFF;
 }
+.footer__upper .footer__form input:focus-visible,
+.footer__upper .footer__form textarea:focus-visible {
+  outline: none;
+}
 .footer__upper .footer__form button {
   max-width: -moz-max-content;
   max-width: max-content;
@@ -1606,12 +1632,14 @@ p {
 
 .dropdown-content a {
   float: none;
-  color: black;
-  padding: 12px 16px;
+  color: #151515;
+  padding: 2px 20px;
   text-decoration: none;
   display: block;
   text-align: left;
   width: 80%;
+  font-size: 20px;
+  line-height: 20px;
 }
 
 .dropdown-content a:hover {
@@ -1619,7 +1647,10 @@ p {
 }
 
 .dropdown.active .dropdown-content {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 @media screen and (min-width: 770px) {
@@ -1721,9 +1752,10 @@ p {
   display: block;
   width: -moz-max-content;
   width: max-content;
+  margin-top: 30px;
 }
 .mobile__menu .mobile__navigation {
-  margin-top: 40px;
+  margin-block: 40px 10px;
 }
 .mobile__menu .mobile__list {
   display: flex;

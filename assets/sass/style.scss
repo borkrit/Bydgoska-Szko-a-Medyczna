@@ -147,11 +147,32 @@
     }
 
     .header {
-        margin-top: 30px;
+        
+
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 20;
+
 
         &__container {
             display: flex;
             justify-content: space-between;
+            width: 100%;
+            padding: 25px 40px;
+            @media screen and (max-width:500px) {
+                padding: 25px 20px;
+            }
+
+            &.scroll{
+                background: rgb(255 255 255 / 68%);
+                backdrop-filter: blur(5px);
+            }
+
+            &:has(.mobile__wrapper.active){
+                padding: 25px 20px;
+            }
+
             a{
                 color: #252525;
 
@@ -195,11 +216,12 @@
             }
         }
 
+        
+
 
     }
-
     .hero {
-        margin-top: 40px;
+        margin-top: 60px;
 
         h1 {
             margin-bottom: 30px;
@@ -677,10 +699,10 @@
 
     // directions pages
     .directions {
-        margin-top: 80px;
+        margin-top: 100px;
 
         @media screen and (max-width: 769px) {
-            margin-top: 60px;
+            margin-top: 80px;
         }
 
         &__header-info {
@@ -797,10 +819,10 @@
     // PAGE recruting 
 
     .recruting {
-        margin-top: 80px;
+        margin-top: 100px;
 
         @media screen and (max-width:425px) {
-            margin-top: 60px;
+            margin-top: 80px;
         }
 
         h1 {
@@ -895,10 +917,10 @@
     // CONTACT page s
 
     .contact {
-        margin-top: 80px;
+        margin-top: 100px;
 
         @media screen and (max-width:425px) {
-            margin-top: 60px;
+            margin-top: 80px;
         }
 
         h1 {
@@ -954,10 +976,10 @@
     // Galery page 
 
     .galery {
-        margin-top: 80px;
+        margin-top: 100px;
 
         @media screen and (max-width:425px) {
-            margin-top: 60px;
+            margin-top: 80px;
         }
         &__container{
              h1{
@@ -1028,10 +1050,10 @@
     // foto page
 
     .foto {
-        margin-top: 80px;
+        margin-top: 100px;
 
         @media screen and (max-width:425px) {
-            margin-top: 60px;
+            margin-top: 80px;
         }
 
 
@@ -1142,10 +1164,10 @@
     // single direction 
 
     .single-direction {
-        margin-top: 84px;
+        margin-top: 100px;
 
         @media screen and (max-width:425px) {
-            margin-top: 60px;
+            margin-top: 80px;
         }
 
         &__upper-info {
@@ -1200,10 +1222,13 @@
                 img {
                     margin-top: auto;
                     height: auto;
+                    max-height: 400px;
                 }
             }
 
             .images {
+                max-height: 780px;
+
                 @media screen and (max-width:769px) {
                     order: 1;
 
@@ -1286,10 +1311,10 @@
 
     // about-us page
     .about-us {
-        margin-top: 84px;
+        margin-top: 100px;
 
         @media screen and (max-width:425px) {
-            margin-top: 60px;
+            margin-top: 80px;
         }
 
 
@@ -1611,6 +1636,9 @@
                         &::placeholder {
                             color: #FFF;
                         }
+                        &:focus-visible{
+                            outline: none;
+                        }
                     }
 
                     button {
@@ -1671,12 +1699,14 @@
       
       .dropdown-content a {
         float: none;
-        color: black;
-        padding: 12px 16px;
+        color: #151515;
+        padding: 2px 20px;
         text-decoration: none;
         display: block;
         text-align: left;
         width: 80%;
+        font-size: 20px;
+        line-height: 20px;
       }
       
       .dropdown-content a:hover {
@@ -1685,7 +1715,10 @@
       
     
       .dropdown.active .dropdown-content {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
       }
       @media screen and (min-width:770px) {
         .dropdown-content {
@@ -1806,12 +1839,13 @@
                     padding-top: 30px;
                     display: block;
                     width: max-content;
+                    margin-top: 30px;
                 }
             }
 
             
             &__navigation {
-                margin-top:40px;
+                margin-block: 40px 10px;
             }
 
             &__list {
