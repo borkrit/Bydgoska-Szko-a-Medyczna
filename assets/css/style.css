@@ -1662,7 +1662,7 @@ p {
     z-index: 1;
     flex-direction: column;
     gap: 10px;
-    margin-top: 10px;
+    padding-top: 10px;
   }
   .dropdown:hover .dropdown-content {
     display: flex;
