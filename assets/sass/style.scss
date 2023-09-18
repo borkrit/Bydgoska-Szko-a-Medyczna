@@ -360,6 +360,7 @@
             width: calc(100%/2 - 50px);
             max-width: calc(100%/2 - 50px);
             flex: 1 1 45%;
+            cursor: none;
 
             &-link{
                 cursor: url('../../assets/static/arrow.svg') auto;
@@ -375,8 +376,6 @@
                 position: relative;
                 overflow: hidden;
 
-
-
                 img{
                     height: 250px;
                     object-fit: cover;
@@ -388,12 +387,12 @@
                         outline: 4px solid #C3A362;
                         img {
                             transform: translateY(0);
-                            animation: returnImage 0.3s linear;
+                            animation: returnImage 0.3s ease;
                         }
                         p {
                             display: block;
                             opacity: 1;
-                            animation: opacityText 0.5s linear ;
+                            animation: opacityText 1.3s ease ;
 
                         }
 
@@ -412,6 +411,23 @@
                             
 
                         }
+                    }
+
+                    &.out{
+                        img {
+                            animation: returnImages .5s linear;
+                        }
+                        
+                        @keyframes returnImages {
+                            from{
+                                transform: translateY(100%);
+                            }
+                            to {
+                                transform: translateY(0%);
+                            }
+
+                        }
+                        
                     }
                 }
                
@@ -1652,6 +1668,7 @@
                         display: flex;
                         flex-direction: column;
                         gap: 10px;
+                        
                     }
 
                     input,
@@ -1660,10 +1677,11 @@
                         border: 1px solid #C3A362;
                         padding: 10px;
                         background: transparent;
-                        color: #fff;
+                        color: rgba(255, 255, 255, 0.60);
+                        font-size: 16px;
 
                         &::placeholder {
-                            color: #FFF;
+                            color: rgba(255, 255, 255, 0.60);
                         }
                         &:focus-visible{
                             outline: none;
@@ -1977,7 +1995,7 @@
         position: fixed;
         width: max-content;
         right: 40px;
-        top: 30%;
+        bottom: 20%;
         cursor: pointer;
 
         background: var(--11, #C3A362);
@@ -1990,7 +2008,7 @@
                 display: block;
                 color: var(--1-text, #151515);
                 font-size: 20px;
-                 font-weight: 400;
+                font-weight: 400;
             }
 
             @media screen and (max-width:600px) {
@@ -2024,7 +2042,7 @@
 
     .cursor{
         display: none;
-        top:10px;
+        
         width: 70px;
         height: 70px;
         padding-inline: 10px;
@@ -2035,4 +2053,9 @@
         background-color: #C3A362;
         color: #FFF;
         font-size: 16px;
+        margin: 0;
+        padding: 0;
+        transform: translate(-50% ,-130%);
+        cursor: none;
+        pointer-events: none;
     }

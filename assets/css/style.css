@@ -301,6 +301,7 @@ p {
   width: calc(50% - 50px);
   max-width: calc(50% - 50px);
   flex: 1 1 45%;
+  cursor: none;
 }
 .direction__item-link {
   cursor: url("../../assets/static/arrow.svg") auto;
@@ -325,12 +326,12 @@ p {
   }
   .direction__item .img:hover img {
     transform: translateY(0);
-    animation: returnImage 0.3s linear;
+    animation: returnImage 0.3s ease;
   }
   .direction__item .img:hover p {
     display: block;
     opacity: 1;
-    animation: opacityText 0.5s linear;
+    animation: opacityText 1.3s ease;
   }
   @keyframes returnImage {
     to {
@@ -343,6 +344,17 @@ p {
     }
     100% {
       opacity: 1;
+    }
+  }
+  .direction__item .img.out img {
+    animation: returnImages 0.5s linear;
+  }
+  @keyframes returnImages {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0%);
     }
   }
 }
@@ -1599,14 +1611,15 @@ p {
   border: 1px solid #C3A362;
   padding: 10px;
   background: transparent;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
 }
 .footer__upper .footer__form input::-moz-placeholder, .footer__upper .footer__form textarea::-moz-placeholder {
-  color: #FFF;
+  color: rgba(255, 255, 255, 0.6);
 }
 .footer__upper .footer__form input::placeholder,
 .footer__upper .footer__form textarea::placeholder {
-  color: #FFF;
+  color: rgba(255, 255, 255, 0.6);
 }
 .footer__upper .footer__form input:focus-visible,
 .footer__upper .footer__form textarea:focus-visible {
@@ -1863,7 +1876,7 @@ p {
   width: -moz-max-content;
   width: max-content;
   right: 40px;
-  top: 30%;
+  bottom: 20%;
   cursor: pointer;
   background: var(--11, #C3A362);
 }
@@ -1902,7 +1915,6 @@ p {
 
 .cursor {
   display: none;
-  top: 10px;
   width: 70px;
   height: 70px;
   padding-inline: 10px;
@@ -1913,4 +1925,9 @@ p {
   background-color: #C3A362;
   color: #FFF;
   font-size: 16px;
+  margin: 0;
+  padding: 0;
+  transform: translate(-50%, -130%);
+  cursor: none;
+  pointer-events: none;
 }/*# sourceMappingURL=style.css.map */

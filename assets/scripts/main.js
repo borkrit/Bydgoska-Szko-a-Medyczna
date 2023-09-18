@@ -13,26 +13,52 @@ document.addEventListener('scroll',()=>{
 
 const cursor = document.querySelector(".cursor");
 
-const itemLinks = document.querySelectorAll('.direction__item-link');
+const itemLinks = document.querySelectorAll('.direction__item-link .img');
 function changeCursorStyle(event) {
-    let x = event.pageX;
-		let y = event.pageY;
-    cursor.style.display = 'flex';
-    cursor.style.top = `${y}px`;
-    cursor.style.left = `${x}px`;
+    
+    if (event.target !== cursor) {
+        let x = event.pageX;
+        let y = event.pageY;
+        cursor.style.display = 'flex';
+        cursor.style.top = `${y}px`;
+        cursor.style.left = `${x}px`;
+    }
 }
-function hiddenCursor(){
+function hiddenCursor(item){
     cursor.style.display = 'none';
+
+    item.classList.add('out')
+    setTimeout(()=>{
+        item.classList.remove('out')
+    },500);
+    
 }
 
 itemLinks.forEach(itemLink => {
-    itemLink.style.cursor = 'none'
-    itemLink.addEventListener('mousemove', changeCursorStyle);
-
-    itemLink.addEventListener('mouseleave', hiddenCursor);
-
+    itemLink.style.cursor = 'none';
     
+    itemLink.addEventListener('mousemove', (event) => {changeCursorStyle(event);
+
+    });
+   
+    itemLink.addEventListener('mouseleave', ()=>hiddenCursor(itemLink));
+
+   
+
+    return () => {
+        itemLink.removeEventListener('mousemove', (event) => {
+
+            changeCursorStyle(event);
+
+        });
+        itemLink.removeEventListener('mouseleave', ()=>hiddenCursor(itemLink));
+    }
 });
+
+
+
+
+
 // menu 
 let menuHamburger = document.querySelector('.mobile__menu-icon');
 let mobileMenu = document.querySelector('.mobile__wrapper');
