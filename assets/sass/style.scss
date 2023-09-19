@@ -1668,6 +1668,7 @@
                         display: flex;
                         flex-direction: column;
                         gap: 10px;
+                        font-family: 'Lato', sans-serif;
                         
                     }
 
@@ -1679,6 +1680,7 @@
                         background: transparent;
                         color: rgba(255, 255, 255, 0.60);
                         font-size: 16px;
+                        font-family: 'Lato', sans-serif;
 
                         &::placeholder {
                             color: rgba(255, 255, 255, 0.60);
