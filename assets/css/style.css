@@ -1613,6 +1613,7 @@ p {
   background: transparent;
   color: rgba(255, 255, 255, 0.6);
   font-size: 16px;
+  font-family: "Lato", sans-serif;
 }
 .footer__upper .footer__form input::-moz-placeholder, .footer__upper .footer__form textarea::-moz-placeholder {
   color: rgba(255, 255, 255, 0.6);
