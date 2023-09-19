@@ -2061,3 +2061,13 @@
         cursor: none;
         pointer-events: none;
     }
+
+    .error{
+        font-size: 14px;
+        
+        ~p{
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+        }
+    }

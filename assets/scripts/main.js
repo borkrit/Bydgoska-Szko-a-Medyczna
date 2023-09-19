@@ -102,3 +102,48 @@ dropdownBtn.forEach(el=>{
 })
 
 })
+
+const form = document.getElementById('myForm');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const acceptCheckbox = document.getElementById('accept');
+const acceptC = document.querySelector('.custom-checkbox');
+form.addEventListener('submit', function (e) {
+    e.preventDefault(); 
+    
+    if (nameInput.value.trim() === '' ) {
+        errorText(nameInput,'Imię')
+        return;
+    }
+
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(emailInput.value)) {
+        errorText(emailInput,'Email')
+        return;
+    }
+
+    if (!acceptCheckbox.checked) {
+        errorText(acceptC,'checkbox')
+        return;
+    }
+
+    form.submit(); 
+});
+
+function errorText(item,text){
+    let block = document.createElement('p')
+    item.classList.add('error');
+    if(text == 'email' || text == 'Imię'){
+        block.innerText = 'Napisz prawidlowe '+ text;
+
+    }else{
+        block.innerText = 'Wyraż zgodę na przetwarzanie danych';
+
+    }
+    item.after(block)
+
+    setTimeout(()=>{
+        item.classList.remove('error');
+        block.remove()
+    },3000)
+}

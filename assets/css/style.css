@@ -1604,6 +1604,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  font-family: "Lato", sans-serif;
 }
 .footer__upper .footer__form input,
 .footer__upper .footer__form textarea {
@@ -1931,4 +1932,13 @@ p {
   transform: translate(-50%, -130%);
   cursor: none;
   pointer-events: none;
+}
+
+.error {
+  font-size: 14px;
+}
+.error ~ p {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
 }/*# sourceMappingURL=style.css.map */
