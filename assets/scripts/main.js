@@ -133,11 +133,10 @@ form.addEventListener('submit', function (e) {
 function errorText(item,text){
     let block = document.createElement('p')
     item.classList.add('error');
-    if(text == 'email' || text == 'Imię'){
-        block.innerText = 'Napisz prawidlowe '+ text;
-
-    }else{
+    if(text == 'checkbox' ){
         block.innerText = 'Wyraż zgodę na przetwarzanie danych';
+    }else{
+        block.innerText = 'Napisz prawidlowe '+ text;
 
     }
     item.after(block)
